@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "813948377247",
+    "project_id": "app-csf",
+    "storage_bucket": "app-csf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813948377247:android:2a7c8f610a5d576b252aaa",
+        "android_client_info": {
+          "package_name": "com.example.capela_sagrada_familia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813948377247-7adskt57igru50i9ofrhlnte0q8rqrdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATTlG5VINchn_bt8701UPjsYM-cPlADBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813948377247-7adskt57igru50i9ofrhlnte0q8rqrdj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
