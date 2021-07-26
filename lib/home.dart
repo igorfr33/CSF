@@ -1,6 +1,7 @@
 import 'package:capela_sagrada_familia/Telas/contador.dart';
 import 'package:capela_sagrada_familia/Telas/folheto.dart';
 import 'package:capela_sagrada_familia/Telas/inicio.dart';
+import 'package:capela_sagrada_familia/Telas/intencoes.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -18,7 +19,7 @@ class _HomeState extends State<Home> {
     List<Widget> telas = [
       Inicio(),
       Contador(),
-      Folheto(),
+      Intencoes(),
     ];
 
     return Scaffold(
