@@ -16,12 +16,13 @@ class _IntencoesState extends State<Intencoes> {
 
     Firestore db = Firestore.instance;
 
-    db.collection("Intencoes")
-    .document("intecoes")
-    .setData({
-        "Intenções": "Pelo Sétimo Dia De Fulano"
-    }
-    );
+    DocumentReference ref = await db.collection("Intencoes")
+    .add(
+      {
+        "Intenções" : "Pelo Sétimo Dia de Fulano"
+      }
+  );
+  print("item salvo: " + ref.documentID );
 
   }
   
