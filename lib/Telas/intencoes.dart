@@ -10,35 +10,96 @@ class Intencoes extends StatefulWidget {
 
 class _IntencoesState extends State<Intencoes> {
   
-  _salvarIntencoes() async{
+  TextEditingController _controller = TextEditingController();
+
+  _salvarIntencoes(TextEditingController _controllerIntencoes) async{
+
+    _controllerIntencoes = _controller;
 
     WidgetsFlutterBinding.ensureInitialized();
 
     Firestore db = Firestore.instance;
 
-    DocumentReference ref = await db.collection("Intencoes")
-    .add(
+    db.collection("Intencoes").add(
       {
-        "Intenções" : "Pelo Sétimo Dia de Fulano"
+        "Intenção" : _controllerIntencoes.text,
+        
       }
   );
-  print("item salvo: " + ref.documentID );
+
+  }
+
+  _listarInencoes() async {
+
+     WidgetsFlutterBinding.ensureInitialized();
+
+    Firestore db = Firestore.instance;
+
+    DocumentSnapshot snapshot = await db.collection("Intencoes")
+      .document()
+      .get();
+
+    db.collection("Intencoes").snapshots().listen(
+      ( snapshot ){
+
+        for( DocumentSnapshot item in snapshot.documents ){
+          var dados = item.data;
+          print("Itenções: " + dados["Intenção"]);
+        }
+
+      }
+  );
 
   }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            ElevatedButton(
-              child: Text("Salvar Intenção"),
-              onPressed: _salvarIntencoes,
-            )
-          ],
-        ),
+      body: Column(
+        children: <Widget>[
+          FloatingActionButton.extended(
+          label: Text("Adcionar Intenção"),
+          backgroundColor: Colors.purple,
+          onPressed: (){
+            showDialog(
+                context: context,
+              builder: (context){
+
+                  return AlertDialog(
+                    title: Text("Adicionar Intenção"),
+                    content: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        labelText: "Digite sua inteção"
+                      ),
+                      onChanged: (text){
+
+                      },
+                    ),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text("Cancelar"),
+                        onPressed: () => Navigator.pop(context) ,
+                      ),
+                      FlatButton(
+                        child: Text("Salvar"),
+                        onPressed: (){
+                          //salvar
+                          _salvarIntencoes(_controller);
+                          Navigator.pop(context);
+                        },
+                      )
+                    ],
+                  );
+
+              }
+            );
+
+          }
       ),
+
+        ],
+      )
     );
   }
 }

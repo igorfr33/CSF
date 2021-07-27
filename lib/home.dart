@@ -1,4 +1,3 @@
-import 'package:capela_sagrada_familia/Telas/contador.dart';
 import 'package:capela_sagrada_familia/Telas/folheto.dart';
 import 'package:capela_sagrada_familia/Telas/inicio.dart';
 import 'package:capela_sagrada_familia/Telas/intencoes.dart';
@@ -18,8 +17,8 @@ class _HomeState extends State<Home> {
 
     List<Widget> telas = [
       Inicio(),
-      Contador(),
       Intencoes(),
+      Folheto(),
     ];
 
     return Scaffold(
@@ -42,13 +41,13 @@ class _HomeState extends State<Home> {
               title: Text("Início"),
               icon: Icon(Icons.home)
             ),
-            BottomNavigationBarItem(
-                title: Text("Contador"),
-                icon: Icon(Icons.add_outlined)
-            ),
              BottomNavigationBarItem(
-              title: Text("Folheto"),
-              icon: Icon(Icons.auto_stories_outlined),
+              title: Text("Intenções"),
+              icon: Icon(Icons.book_rounded),
+            ),
+            BottomNavigationBarItem(
+                title: Text("Folheto"),
+                icon: Icon(Icons.auto_stories_outlined)
             ),
           ]
       ),

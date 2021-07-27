@@ -1,5 +1,5 @@
-/*
-import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
+
+import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:flutter/material.dart';
 
 class Folheto extends StatefulWidget {
@@ -43,4 +43,3 @@ class _FolhetoState extends State<Folheto> {
       : PDFViewer(document: _doc));
   }
 }
-*/
